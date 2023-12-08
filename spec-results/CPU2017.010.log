@@ -1,0 +1,898 @@
+runcpu v6612 started at 2023-12-02 19:24:02 on "ada.cs.txstate.edu"
+runcpu is: /usr/local/cpu2017/bin/harness/runcpu
+runcpu: runcpu '--config=LLVM_Loopunroll_clang_basic.cfg' '--iterations=3' 519.lbm_r
+toolset: linux-x86_64
+suite: CPU2017 1.1.9
+
+Locating benchmarks...found 47 benchmarks in 73 benchsets.
+Reading config file '/usr/local/cpu2017/config/LLVM_Loopunroll_clang_basic.cfg'
+
+1 configuration selected:
+
+ Action    Run Mode   Workload     Report Type     Benchmarks
+--------   --------   --------   ---------------   ----------------------------
+validate   rate       refrate    SPECrate2017_fp   519.lbm_r                   
+-------------------------------------------------------------------------------
+
+Setting up environment for running 519.lbm_r...
+Starting runcpu for 519.lbm_r...
+Running "specperl /usr/local/cpu2017/bin/sysinfo" to gather system information.
+sysinfo: r6732 of 2022-11-07 (fe91c89b7ed5c36ae2c92cc097bec197)
+sysinfo: ...getting basic information about kernel, users, and limits
+sysinfo: Getting system information for Linux...
+sysinfo: ...getting CPU info
+sysinfo: ...getting info from numactl
+sysinfo: ...getting memory info
+sysinfo: ...getting info from systemd
+sysinfo: ...getting power info
+sysinfo: ...getting system tuning info
+sysinfo: ...getting OS info
+sysinfo: ...getting disk info
+sysinfo: ...getting info from /sys/devices/virtual/dmi/id
+sysinfo: ...getting info from dmidecode
+Read 304 info lines from the sysinfo program:
+  1: notes_plat_sysinfo_100 =  
+  2: notes_plat_sysinfo_101 = Sysinfo program /usr/local/cpu2017/bin/sysinfo
+  3: notes_plat_sysinfo_102 = Rev: r6732 of 2022-11-07 fe91c89b7ed5c36ae2c92cc097bec197
+  4: notes_plat_sysinfo_103 = running on ada.cs.txstate.edu Sat Dec  2 19:24:04 2023
+  5: notes_plat_sysinfo_104 =  
+  6: notes_plat_sysinfo_105 = SUT (System Under Test) info as seen by some common utilities.
+  7: notes_plat_sysinfo_107 = 
+  8: notes_plat_sysinfo_108 = ------------------------------------------------------------
+  9: notes_plat_sysinfo_109 = Table of contents
+ 10: notes_plat_sysinfo_110 = ------------------------------------------------------------
+ 11: notes_plat_sysinfo_111 =  1. uname -a
+ 12: notes_plat_sysinfo_112 =  2. w
+ 13: notes_plat_sysinfo_113 =  3. Username
+ 14: notes_plat_sysinfo_114 =  4. ulimit -a
+ 15: notes_plat_sysinfo_115 =  5. sysinfo process ancestry
+ 16: notes_plat_sysinfo_116 =  6. /proc/cpuinfo
+ 17: notes_plat_sysinfo_117 =  7. lscpu
+ 18: notes_plat_sysinfo_118 =  8. numactl warning
+ 19: notes_plat_sysinfo_119 =  9. /proc/meminfo
+ 20: notes_plat_sysinfo_120 = 10. who -r
+ 21: notes_plat_sysinfo_121 = 11. Systemd service manager version: systemd 245 (245.4-4ubuntu3.22)
+ 22: notes_plat_sysinfo_122 = 12. Failed units, from systemctl list-units --state=failed
+ 23: notes_plat_sysinfo_123 = 13. Services, from systemctl list-unit-files
+ 24: notes_plat_sysinfo_124 = 14. Linux kernel boot-time arguments, from /proc/cmdline
+ 25: notes_plat_sysinfo_125 = 15. cpupower frequency-info
+ 26: notes_plat_sysinfo_126 = 16. sysctl
+ 27: notes_plat_sysinfo_127 = 17. /sys/kernel/mm/transparent_hugepage
+ 28: notes_plat_sysinfo_128 = 18. /sys/kernel/mm/transparent_hugepage/khugepaged
+ 29: notes_plat_sysinfo_129 = 19. OS release
+ 30: notes_plat_sysinfo_130 = 20. Disk information
+ 31: notes_plat_sysinfo_131 = 21. /sys/devices/virtual/dmi/id
+ 32: notes_plat_sysinfo_132 = 22. dmidecode warning
+ 33: notes_plat_sysinfo_133 = 23. BIOS
+ 34: notes_plat_sysinfo_134 = ------------------------------------------------------------
+ 35: notes_plat_sysinfo_206 =  
+ 36: notes_plat_sysinfo_207 = ------------------------------------------------------------
+ 37: notes_plat_sysinfo_208 = 1. uname -a
+ 38: notes_plat_sysinfo_209 =   Linux ada.cs.txstate.edu 5.4.0-166-generic #183-Ubuntu SMP Mon Oct 2 11:28:33 UTC 2023 x86_64 x86_64 x86_64
+ 39: notes_plat_sysinfo_210 =   GNU/Linux
+ 40: notes_plat_sysinfo_211 =  
+ 41: notes_plat_sysinfo_212 = ------------------------------------------------------------
+ 42: notes_plat_sysinfo_213 = 2. w
+ 43: notes_plat_sysinfo_214 =    19:24:04 up 12 days,  1:29,  1 user,  load average: 0.01, 0.00, 0.00
+ 44: notes_plat_sysinfo_215 =   USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+ 45: notes_plat_sysinfo_216 =   hgv16    pts/1    147.26.231.153   17:31    2.00s  2.87s  0.00s sh -c w 2>/dev/null
+ 46: notes_plat_sysinfo_217 =  
+ 47: notes_plat_sysinfo_218 = ------------------------------------------------------------
+ 48: notes_plat_sysinfo_219 = 3. Username
+ 49: notes_plat_sysinfo_220 =   From environment variable $USER:  hgv16
+ 50: notes_plat_sysinfo_221 =  
+ 51: notes_plat_sysinfo_222 = ------------------------------------------------------------
+ 52: notes_plat_sysinfo_223 = 4. ulimit -a
+ 53: notes_plat_sysinfo_224 =   time(seconds)        unlimited
+ 54: notes_plat_sysinfo_225 =   file(blocks)         unlimited
+ 55: notes_plat_sysinfo_226 =   data(kbytes)         unlimited
+ 56: notes_plat_sysinfo_227 =   stack(kbytes)        8192
+ 57: notes_plat_sysinfo_228 =   coredump(blocks)     0
+ 58: notes_plat_sysinfo_229 =   memory(kbytes)       unlimited
+ 59: notes_plat_sysinfo_230 =   locked memory(kbytes) 65536
+ 60: notes_plat_sysinfo_231 =   process              256676
+ 61: notes_plat_sysinfo_232 =   nofiles              1024
+ 62: notes_plat_sysinfo_233 =   vmemory(kbytes)      unlimited
+ 63: notes_plat_sysinfo_234 =   locks                unlimited
+ 64: notes_plat_sysinfo_235 =   rtprio               0
+ 65: notes_plat_sysinfo_236 =  
+ 66: notes_plat_sysinfo_237 = ------------------------------------------------------------
+ 67: notes_plat_sysinfo_238 = 5. sysinfo process ancestry
+ 68: notes_plat_sysinfo_239 =  /sbin/init
+ 69: notes_plat_sysinfo_240 =  sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+ 70: notes_plat_sysinfo_241 =  sshd: hgv16 [priv]
+ 71: notes_plat_sysinfo_242 =  sshd: hgv16@pts/1
+ 72: notes_plat_sysinfo_243 =  -bash
+ 73: notes_plat_sysinfo_244 =  runcpu --config=LLVM_Loopunroll_clang_basic.cfg --iterations=3 519.lbm_r
+ 74: notes_plat_sysinfo_245 =  runcpu --configfile LLVM_Loopunroll_clang_basic.cfg --iterations 3 --noreportable --nopower --runmode rate
+ 75: notes_plat_sysinfo_246 =    --tune base --size refrate 519.lbm_r --nopreenv --note-preenv --logfile
+ 76: notes_plat_sysinfo_247 =    /home/hgv16/cpu2017/tmp/CPU2017.010/templogs/preenv.fprate.010.0.log --lognum 010.0 --from_runcpu 2
+ 77: notes_plat_sysinfo_248 =  specperl $SPEC/bin/sysinfo
+ 78: notes_plat_sysinfo_249 = $SPEC = /usr/local/cpu2017
+ 79: notes_plat_sysinfo_250 =  
+ 80: notes_plat_sysinfo_251 = ------------------------------------------------------------
+ 81: notes_plat_sysinfo_252 = 6. /proc/cpuinfo
+ 82: notes_plat_sysinfo_253 =     model name      : Intel(R) Xeon(R) CPU E5-2609 v3 @ 1.90GHz
+ 83: notes_plat_sysinfo_254 =     vendor_id       : GenuineIntel
+ 84: notes_plat_sysinfo_255 =     cpu family      : 6
+ 85: notes_plat_sysinfo_256 =     model           : 63
+ 86: notes_plat_sysinfo_257 =     stepping        : 2
+ 87: notes_plat_sysinfo_258 =     microcode       : 0x49
+ 88: notes_plat_sysinfo_259 =     bugs            : cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit
+ 89: notes_plat_sysinfo_260 =                       mmio_stale_data
+ 90: notes_plat_sysinfo_261 =     cpu cores       : 6
+ 91: notes_plat_sysinfo_262 =     siblings        : 6
+ 92: notes_plat_sysinfo_263 =     2 physical ids (chips)
+ 93: notes_plat_sysinfo_264 =     12 processors (hardware threads)
+ 94: notes_plat_sysinfo_265 =     physical id 0: core ids 0-5
+ 95: notes_plat_sysinfo_266 =     physical id 1: core ids 0-5
+ 96: notes_plat_sysinfo_267 =     physical id 0: apicids 0,2,4,6,8,10
+ 97: notes_plat_sysinfo_268 =     physical id 1: apicids 16,18,20,22,24,26
+ 98: notes_plat_sysinfo_269 =   Caution: /proc/cpuinfo data regarding chips, cores, and threads is not necessarily reliable, especially for
+ 99: notes_plat_sysinfo_270 =   virtualized systems.  Use the above data carefully.
+100: notes_plat_sysinfo_271 =  
+101: notes_plat_sysinfo_272 = ------------------------------------------------------------
+102: notes_plat_sysinfo_273 = 7. lscpu
+103: notes_plat_sysinfo_274 =  
+104: notes_plat_sysinfo_275 = From lscpu from util-linux 2.34:
+105: notes_plat_sysinfo_276 =   Architecture:                       x86_64
+106: notes_plat_sysinfo_277 =   CPU op-mode(s):                     32-bit, 64-bit
+107: notes_plat_sysinfo_278 =   Byte Order:                         Little Endian
+108: notes_plat_sysinfo_279 =   Address sizes:                      46 bits physical, 48 bits virtual
+109: notes_plat_sysinfo_280 =   CPU(s):                             12
+110: notes_plat_sysinfo_281 =   On-line CPU(s) list:                0-11
+111: notes_plat_sysinfo_282 =   Thread(s) per core:                 1
+112: notes_plat_sysinfo_283 =   Core(s) per socket:                 6
+113: notes_plat_sysinfo_284 =   Socket(s):                          2
+114: notes_plat_sysinfo_285 =   NUMA node(s):                       2
+115: notes_plat_sysinfo_286 =   Vendor ID:                          GenuineIntel
+116: notes_plat_sysinfo_287 =   CPU family:                         6
+117: notes_plat_sysinfo_288 =   Model:                              63
+118: notes_plat_sysinfo_289 =   Model name:                         Intel(R) Xeon(R) CPU E5-2609 v3 @ 1.90GHz
+119: notes_plat_sysinfo_290 =   Stepping:                           2
+120: notes_plat_sysinfo_291 =   CPU MHz:                            1198.961
+121: notes_plat_sysinfo_292 =   CPU max MHz:                        1900.0000
+122: notes_plat_sysinfo_293 =   CPU min MHz:                        1200.0000
+123: notes_plat_sysinfo_294 =   BogoMIPS:                           3795.66
+124: notes_plat_sysinfo_295 =   Virtualization:                     VT-x
+125: notes_plat_sysinfo_296 =   L1d cache:                          384 KiB
+126: notes_plat_sysinfo_297 =   L1i cache:                          384 KiB
+127: notes_plat_sysinfo_298 =   L2 cache:                           3 MiB
+128: notes_plat_sysinfo_299 =   L3 cache:                           30 MiB
+129: notes_plat_sysinfo_300 =   NUMA node0 CPU(s):                  0,2,4,6,8,10
+130: notes_plat_sysinfo_301 =   NUMA node1 CPU(s):                  1,3,5,7,9,11
+131: notes_plat_sysinfo_302 =   Vulnerability Gather data sampling: Not affected
+132: notes_plat_sysinfo_303 =   Vulnerability Itlb multihit:        KVM: Mitigation: Split huge pages
+133: notes_plat_sysinfo_304 =   Vulnerability L1tf:                 Mitigation; PTE Inversion; VMX conditional cache flushes, SMT disabled
+134: notes_plat_sysinfo_305 =   Vulnerability Mds:                  Mitigation; Clear CPU buffers; SMT disabled
+135: notes_plat_sysinfo_306 =   Vulnerability Meltdown:             Mitigation; PTI
+136: notes_plat_sysinfo_307 =   Vulnerability Mmio stale data:      Mitigation; Clear CPU buffers; SMT disabled
+137: notes_plat_sysinfo_308 =   Vulnerability Retbleed:             Not affected
+138: notes_plat_sysinfo_309 =   Vulnerability Spec store bypass:    Mitigation; Speculative Store Bypass disabled via prctl and seccomp
+139: notes_plat_sysinfo_310 =   Vulnerability Spectre v1:           Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+140: notes_plat_sysinfo_311 =   Vulnerability Spectre v2:           Mitigation; Retpolines, IBPB conditional, IBRS_FW, STIBP disabled, RSB
+141: notes_plat_sysinfo_312 =                                       filling, PBRSB-eIBRS Not affected
+142: notes_plat_sysinfo_313 =   Vulnerability Srbds:                Not affected
+143: notes_plat_sysinfo_314 =   Vulnerability Tsx async abort:      Not affected
+144: notes_plat_sysinfo_315 =   Flags:                              fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36
+145: notes_plat_sysinfo_316 =                                       clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb
+146: notes_plat_sysinfo_317 =                                       rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology
+147: notes_plat_sysinfo_318 =                                       nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx
+148: notes_plat_sysinfo_319 =                                       smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic
+149: notes_plat_sysinfo_320 =                                       movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm
+150: notes_plat_sysinfo_321 =                                       cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi
+151: notes_plat_sysinfo_322 =                                       flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2
+152: notes_plat_sysinfo_323 =                                       erms invpcid cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts
+153: notes_plat_sysinfo_324 =                                       md_clear flush_l1d
+154: notes_plat_sysinfo_325 =  
+155: notes_plat_sysinfo_326 = From lscpu --cache:
+156: notes_plat_sysinfo_327 =      NAME ONE-SIZE ALL-SIZE WAYS TYPE        LEVEL
+157: notes_plat_sysinfo_328 =      L1d       32K     384K    8 Data            1
+158: notes_plat_sysinfo_329 =      L1i       32K     384K    8 Instruction     1
+159: notes_plat_sysinfo_330 =      L2       256K       3M    8 Unified         2
+160: notes_plat_sysinfo_331 =      L3        15M      30M   20 Unified         3
+161: notes_plat_sysinfo_332 =  
+162: notes_plat_sysinfo_333 = ------------------------------------------------------------
+163: notes_plat_sysinfo_334 = 8. numactl warning
+164: notes_plat_sysinfo_335 =  
+165: notes_plat_sysinfo_336 = Unable to get information from 'numactl --hardware'.  Please consider installing numactl.
+166: notes_plat_sysinfo_337 =  
+167: notes_plat_sysinfo_338 = ------------------------------------------------------------
+168: notes_plat_sysinfo_339 = 9. /proc/meminfo
+169: notes_plat_sysinfo_340 =    MemTotal:       65853608 kB
+170: notes_plat_sysinfo_341 =  
+171: notes_plat_sysinfo_342 = ------------------------------------------------------------
+172: notes_plat_sysinfo_343 = 10. who -r
+173: notes_plat_sysinfo_344 =   run-level 5 2023-11-20 17:55
+174: notes_plat_sysinfo_345 =  
+175: notes_plat_sysinfo_346 = ------------------------------------------------------------
+176: notes_plat_sysinfo_347 = 11. Systemd service manager version: systemd 245 (245.4-4ubuntu3.22)
+177: notes_plat_sysinfo_348 =   Default Target  Status
+178: notes_plat_sysinfo_349 =   graphical       degraded
+179: notes_plat_sysinfo_350 =  
+180: notes_plat_sysinfo_351 = ------------------------------------------------------------
+181: notes_plat_sysinfo_352 = 12. Failed units, from systemctl list-units --state=failed
+182: notes_plat_sysinfo_353 =     UNIT                 LOAD   ACTIVE SUB    DESCRIPTION
+183: notes_plat_sysinfo_354 =   * sssd-nss.socket      loaded failed failed SSSD NSS Service responder socket
+184: notes_plat_sysinfo_355 =   * sssd-pam-priv.socket loaded failed failed SSSD PAM Service responder private socket
+185: notes_plat_sysinfo_356 =   * sssd-pam.socket      loaded failed failed SSSD PAM Service responder socket
+186: notes_plat_sysinfo_357 =  
+187: notes_plat_sysinfo_358 = ------------------------------------------------------------
+188: notes_plat_sysinfo_359 = 13. Services, from systemctl list-unit-files
+189: notes_plat_sysinfo_360 =   STATE            UNIT FILES
+190: notes_plat_sysinfo_361 =   enabled          ModemManager NetworkManager NetworkManager-dispatcher NetworkManager-wait-online
+191: notes_plat_sysinfo_362 =                    accounts-daemon anacron apparmor atd autovt@ avahi-daemon binfmt-support blk-availability
+192: notes_plat_sysinfo_363 =                    bluetooth console-setup cron dmesg e2scrub_reap finalrd getty@ gpu-manager grub-common
+193: notes_plat_sysinfo_364 =                    grub-initrd-fallback irqbalance iscsi keyboard-setup lvm2-monitor lxcfs lxd-agent
+194: notes_plat_sysinfo_365 =                    lxd-agent-9p multipath-tools multipathd network-manager networkd-dispatcher networking
+195: notes_plat_sysinfo_366 =                    nvidia-hibernate nvidia-resume nvidia-suspend ondemand open-iscsi open-vm-tools pollinate
+196: notes_plat_sysinfo_367 =                    portmap pppd-dns resolvconf rpcbind rsync rsyslog secureboot-db setvtrgb snapd ssh sshd
+197: notes_plat_sysinfo_368 =                    sssd syslog systemd-pstore systemd-resolved systemd-timesyncd ua-reboot-cmds
+198: notes_plat_sysinfo_369 =                    ubuntu-advantage udisks2 ufw unattended-upgrades ureadahead vgauth vmtoolsd wpa_supplicant
+199: notes_plat_sysinfo_370 =   enabled-runtime  netplan-ovs-cleanup systemd-fsck-root systemd-remount-fs
+200: notes_plat_sysinfo_371 =   disabled         acpid console-getty debug-shell ifupdown-wait-online iscsid rpc-statd rpc-statd-notify
+201: notes_plat_sysinfo_372 =                    rtkit-daemon serial-getty@ systemd-boot-check-no-failures systemd-network-generator
+202: notes_plat_sysinfo_373 =                    systemd-networkd systemd-networkd-wait-online systemd-time-wait-sync upower
+203: notes_plat_sysinfo_374 =                    wpa_supplicant-nl80211@ wpa_supplicant-wired@ wpa_supplicant@
+204: notes_plat_sysinfo_375 =   generated        apport bootmisc checkfs checkroot checkroot-bootclean display-manager halt hostname
+205: notes_plat_sysinfo_376 =                    killprocs libnss-ldap lightdm mountall mountall-bootclean mountdevsubfs mountkernfs
+206: notes_plat_sysinfo_377 =                    mountnfs mountnfs-bootclean mtab reboot sendsigs single systemd-cryptsetup@cryptswap1
+207: notes_plat_sysinfo_378 =                    umountfs umountnfs umountroot urandom
+208: notes_plat_sysinfo_379 =   indirect         saned@ sssd-autofs sssd-nss sssd-pac sssd-pam sssd-ssh sssd-sudo uuidd
+209: notes_plat_sysinfo_380 =   masked           alsa-utils cryptdisks cryptdisks-early hwclock lvm2 multipath-tools-boot nfs-common
+210: notes_plat_sysinfo_381 =                    pulseaudio-enable-autospawn rc rcS saned screen-cleanup sudo x11-common
+211: notes_plat_sysinfo_382 =  
+212: notes_plat_sysinfo_383 = ------------------------------------------------------------
+213: notes_plat_sysinfo_384 = 14. Linux kernel boot-time arguments, from /proc/cmdline
+214: notes_plat_sysinfo_385 =   BOOT_IMAGE=/boot/vmlinuz-5.4.0-166-generic
+215: notes_plat_sysinfo_386 =   root=UUID=6d908453-d8bd-4cd9-9ec3-ff723940aeb9
+216: notes_plat_sysinfo_387 =   ro
+217: notes_plat_sysinfo_388 =  
+218: notes_plat_sysinfo_389 = ------------------------------------------------------------
+219: notes_plat_sysinfo_390 = 15. cpupower frequency-info
+220: notes_plat_sysinfo_391 =   analyzing CPU 0:
+221: notes_plat_sysinfo_392 =     current policy: frequency should be within 1.20 GHz and 1.90 GHz.
+222: notes_plat_sysinfo_393 =                     The governor "powersave" may decide which speed to use
+223: notes_plat_sysinfo_394 =                     within this range.
+224: notes_plat_sysinfo_395 =     boost state support:
+225: notes_plat_sysinfo_396 =       Supported: no
+226: notes_plat_sysinfo_397 =       Active: no
+227: notes_plat_sysinfo_398 =  
+228: notes_plat_sysinfo_399 = ------------------------------------------------------------
+229: notes_plat_sysinfo_400 = 16. sysctl
+230: notes_plat_sysinfo_401 =   kernel.numa_balancing               1
+231: notes_plat_sysinfo_402 =   kernel.randomize_va_space           2
+232: notes_plat_sysinfo_403 =   vm.dirty_background_bytes           0
+233: notes_plat_sysinfo_404 =   vm.dirty_background_ratio          10
+234: notes_plat_sysinfo_405 =   vm.dirty_bytes                      0
+235: notes_plat_sysinfo_406 =   vm.dirty_expire_centisecs        3000
+236: notes_plat_sysinfo_407 =   vm.dirty_ratio                     20
+237: notes_plat_sysinfo_408 =   vm.dirty_writeback_centisecs      500
+238: notes_plat_sysinfo_409 =   vm.dirtytime_expire_seconds     43200
+239: notes_plat_sysinfo_410 =   vm.extfrag_threshold              500
+240: notes_plat_sysinfo_411 =   vm.min_unmapped_ratio               1
+241: notes_plat_sysinfo_412 =   vm.nr_hugepages                     0
+242: notes_plat_sysinfo_413 =   vm.nr_hugepages_mempolicy           0
+243: notes_plat_sysinfo_414 =   vm.nr_overcommit_hugepages          0
+244: notes_plat_sysinfo_415 =   vm.swappiness                      60
+245: notes_plat_sysinfo_416 =   vm.watermark_boost_factor           0
+246: notes_plat_sysinfo_417 =   vm.watermark_scale_factor          10
+247: notes_plat_sysinfo_418 =   vm.zone_reclaim_mode                0
+248: notes_plat_sysinfo_419 =  
+249: notes_plat_sysinfo_420 = ------------------------------------------------------------
+250: notes_plat_sysinfo_421 = 17. /sys/kernel/mm/transparent_hugepage
+251: notes_plat_sysinfo_422 =   defrag          always defer defer+madvise [madvise] never
+252: notes_plat_sysinfo_423 =   enabled         always [madvise] never
+253: notes_plat_sysinfo_424 =   hpage_pmd_size  2097152
+254: notes_plat_sysinfo_425 =   shmem_enabled   always within_size advise [never] deny force
+255: notes_plat_sysinfo_426 =  
+256: notes_plat_sysinfo_427 = ------------------------------------------------------------
+257: notes_plat_sysinfo_428 = 18. /sys/kernel/mm/transparent_hugepage/khugepaged
+258: notes_plat_sysinfo_429 =   alloc_sleep_millisecs   60000
+259: notes_plat_sysinfo_430 =   defrag                      1
+260: notes_plat_sysinfo_431 =   max_ptes_none             511
+261: notes_plat_sysinfo_432 =   max_ptes_swap              64
+262: notes_plat_sysinfo_433 =   pages_to_scan            4096
+263: notes_plat_sysinfo_434 =   scan_sleep_millisecs    10000
+264: notes_plat_sysinfo_435 =  
+265: notes_plat_sysinfo_436 = ------------------------------------------------------------
+266: notes_plat_sysinfo_437 = 19. OS release
+267: notes_plat_sysinfo_438 =   From /etc/*-release /etc/*-version
+268: notes_plat_sysinfo_439 =   os-release Ubuntu 20.04.6 LTS
+269: notes_plat_sysinfo_440 =  
+270: notes_plat_sysinfo_441 = ------------------------------------------------------------
+271: notes_plat_sysinfo_442 = 20. Disk information
+272: notes_plat_sysinfo_443 = SPEC is set to: /usr/local/cpu2017
+273: notes_plat_sysinfo_444 =   Filesystem     Type  Size  Used Avail Use% Mounted on
+274: notes_plat_sysinfo_445 =   /dev/sda1      ext4  854G  646G  165G  80% /
+275: notes_plat_sysinfo_446 =  
+276: notes_plat_sysinfo_447 = ------------------------------------------------------------
+277: notes_plat_sysinfo_448 = 21. /sys/devices/virtual/dmi/id
+278: notes_plat_sysinfo_449 =     Vendor:         Dell Inc.
+279: notes_plat_sysinfo_450 =     Product:        PowerEdge T630
+280: notes_plat_sysinfo_451 =  
+281: notes_plat_sysinfo_452 = ------------------------------------------------------------
+282: notes_plat_sysinfo_453 = 22. dmidecode warning
+283: notes_plat_sysinfo_454 =   Cannot run dmidecode; consider saying (as root)
+284: notes_plat_sysinfo_455 =    chmod +s /usr/sbin/dmidecode
+285: notes_plat_sysinfo_456 =  
+286: notes_plat_sysinfo_457 =  
+287: notes_plat_sysinfo_458 = ------------------------------------------------------------
+288: notes_plat_sysinfo_459 = 23. BIOS
+289: notes_plat_sysinfo_460 = (This section combines info from /sys/devices and dmidecode.)
+290: notes_plat_sysinfo_461 =    BIOS Vendor:       Dell Inc.
+291: notes_plat_sysinfo_462 =    BIOS Version:      2.4.2
+292: notes_plat_sysinfo_463 =    BIOS Date:         01/09/2017
+293: hw_cpu_name        = Intel Xeon E5-2609 v3
+294: hw_disk            = 854 GB  add more disk info here
+295: hw_memory001       = 62.803 GB fixme: If using DDR4, the format is:
+296: hw_memory002       = 'N GB (N x N GB nRxn PC4-nnnnX-X)'
+297: hw_nchips          = 2
+298: hw_ncores          = 12
+299: hw_nthreadspercore = 1
+300: prepared_by        = hgv16  (is never output, only tags rawfile)
+301: sw_file            = ext4
+302: sw_os001           = Ubuntu 20.04.6 LTS
+303: sw_os002           = 5.4.0-166-generic
+304: sw_state           = Run level 5 (add definition here)
+
+Retrieving flags file (/usr/local/cpu2017/config/llvm_loopunroll.xml)...
+Verbosity = 5
+Action    = validate
+Tune      = base
+Label     = llvm_unroll-m64
+Size      = refrate
+benchmarks= 519.lbm_r
+outputs   = pdf
+username  = hgv16
+Environment settings:
+LD_LIBRARY_PATH = "%{clang_dir}/lib/:/lib64"
+
+Benchmarks selected: 519.lbm_r
+Compiling Binaries
+------------------------------------------------------------------------
+COMP: "/usr/bin/clang     -std=c99   -m64 -c -o options.o -DSPEC -DNDEBUG -DSPEC_AUTO_SUPPRESS_OPENMP  -g -O2 -march=native          -fno-strict-aliasing     -DSPEC_LP64  <source>"
+C: CC="/usr/bin/clang     -std=c99   -m64"
+C: COBJOPT="-c -o options"
+P: CPUFLAGS="-DSPEC -DNDEBUG"
+P: BENCH_FLAGS="-DSPEC_AUTO_SUPPRESS_OPENMP"
+P: BENCH_CFLAGS=""
+O: OPTIMIZE="-g -O2 -march=native"
+O: COPTIMIZE=""
+P: PORTABILITY=""
+P: CPORTABILITY=""
+O: EXTRA_CFLAGS="-fno-strict-aliasing"
+O: EXTRA_OPTIMIZE=""
+O: EXTRA_COPTIMIZE=""
+P: EXTRA_PORTABILITY="-DSPEC_LP64"
+P: EXTRA_CPORTABILITY=""
+LINK: "/usr/bin/clang     -std=c99   -m64      -g -O2 -march=native          <objects>   -lm         -o options  "
+C: LD="/usr/bin/clang     -std=c99   -m64"
+O: OPTIMIZE="-g -O2 -march=native"
+C: MATH_LIBS="-lm"
+C: LDOUT="-o options"
+ CC_VERSION_OPTION:
+clang version 10.0.0-4ubuntu1 
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+  Up to date 519.lbm_r base llvm_unroll-m64
+
+
+Setting Up Run Directories
+  Setting up 519.lbm_r refrate (ref) base llvm_unroll-m64 (12 copies): run_base_refrate_llvm_unroll-m64.0000-0011
+-----------------------------------
+Running Benchmarks
+-----------------------------------
+  Running (#1) 519.lbm_r refrate (ref) base llvm_unroll-m64 (12 copies) [2023-12-02 19:24:07]
+OpenMP environment variables removed: None
+OpenMP environment variables in effect:
+	OMP_NUM_THREADS	=> '1'
+	OMP_THREAD_LIMIT	=> '1'
+Pre-run environment changes:
+	'OMP_NUM_THREADS' added: (value now '1')
+	'OMP_THREAD_LIMIT' added: (value now '1')
+Commands to run (specinvoke command file):
+    -r
+    -N C
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0001
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0002
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0003
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0004
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0005
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0006
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0007
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0008
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0009
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0010
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0011
+    -o lbm.out -e lbm.err perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.$SPECCOPYNUM.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err (timed)
+Specinvoke: /usr/local/cpu2017/bin/specinvoke -d /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000 -f speccmds.cmd -q -e speccmds.err -o speccmds.stdout
+Issuing command '/usr/local/cpu2017/bin/specinvoke -d /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000 -f speccmds.cmd -q -e speccmds.err -o speccmds.stdout'
+Start command: 2023-12-02 19:24:07 (1701566647.7898)
+Stop command: 2023-12-02 19:24:12 (1701566652.16713)
+Elapsed time for command: 00:00:04 (4.37733197212219)
+519.lbm_r: copy 10 non-zero return code (exit code=255, signal=0)
+
+****************************************
+Contents of lbm.err
+****************************************
+failed to create output file: Permission denied
+
+****************************************
+****************************************
+Contents of speccmds.out
+****************************************
+specinvoke r4356
+ Invoked as: /usr/local/cpu2017/bin/specinvoke -d /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000 -f speccmds.cmd -q -e speccmds.err -o speccmds.stdout
+timer ticks over every 1000 ns
+ Environment in effect for these runs:
+ # 1: SHLVL=1
+ # 2: PWD=/usr/local/cpu2017
+ # 3: SSH_TTY=/dev/pts/1
+ # 4: PATH=/usr/local/cuda-11.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/cpu2017/bin
+ # 5: SSH_CONNECTION=147.26.231.153 47202 10.102.160.94 22
+ # 6: XDG_SESSION_ID=580
+ # 7: XDG_SESSION_TYPE=tty
+ # 8: XDG_SESSION_CLASS=user
+ # 9: LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.
+webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+ #10: XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
+ #11: USER=hgv16
+ #12: SSH_CLIENT=147.26.231.153 47202 22
+ #13: MOTD_SHOWN=pam
+ #14: _=/usr/local/cpu2017/bin/runcpu
+ #15: HOME=/home/hgv16
+ #16: LESSOPEN=| /usr/bin/lesspipe %s
+ #17: DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/760905436/bus
+ #18: TERM=xterm-256color
+ #19: OLDPWD=/home/hgv16
+ #20: SHELL=/bin/bash
+ #21: LIBC_FATAL_STDERR_=1
+ #22: LESSCLOSE=/usr/bin/lesspipe %s %s
+ #23: SPEC=/usr/local/cpu2017
+ #24: LOGNAME=hgv16
+ #25: LD_LIBRARY_PATH=/usr/lib/:/lib64
+ #26: XDG_RUNTIME_DIR=/run/user/760905436
+ #27: LANG=en_US.UTF-8
+ #28: SPECDB_PWD=/usr/local/cpu2017
+ #29: OMP_NUM_THREADS=1
+ #30: OMP_THREAD_LIMIT=1
+running commands in speccmds.cmd 1 times
+runs started at		1701566647, 795451000, Sat Dec  2 19:24:07 2023
+run 1 started at	1701566647, 795504000, Sat Dec  2 19:24:07 2023
+child started: 0,	1701566647, 795524000, pid=83801, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.0.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 1,	1701566647, 795673000, pid=83802, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.1.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 2,	1701566647, 795787000, pid=83803, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.2.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 3,	1701566647, 795915000, pid=83804, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.3.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 4,	1701566647, 796038000, pid=83805, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.4.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 5,	1701566647, 796152000, pid=83806, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.5.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 6,	1701566647, 796275000, pid=83807, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.6.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 7,	1701566647, 796391000, pid=83808, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.7.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 8,	1701566647, 796522000, pid=83809, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.8.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 9,	1701566647, 796652000, pid=83810, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.9.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 10,	1701566647, 796797000, pid=83811, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.10.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 11,	1701566647, 796926000, pid=83813, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.11.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child finished: 10,	1701566651, 785805000, sec=3, nsec=989008000, pid=83811, rc=65280
+child finished: 3,	1701566651, 841915000, sec=4, nsec=46000000, pid=83804, rc=65280
+child finished: 4,	1701566651, 934060000, sec=4, nsec=138022000, pid=83805, rc=65280
+child finished: 2,	1701566651, 990409000, sec=4, nsec=194622000, pid=83803, rc=65280
+child finished: 6,	1701566651, 994899000, sec=4, nsec=198624000, pid=83807, rc=65280
+child finished: 0,	1701566651, 996328000, sec=4, nsec=200804000, pid=83801, rc=65280
+child finished: 11,	1701566652, 000060000, sec=4, nsec=203134000, pid=83813, rc=65280
+child finished: 9,	1701566652, 010107000, sec=4, nsec=213455000, pid=83810, rc=65280
+child finished: 5,	1701566652, 010458000, sec=4, nsec=214306000, pid=83806, rc=65280
+child finished: 8,	1701566652, 012504000, sec=4, nsec=215982000, pid=83809, rc=65280
+child finished: 1,	1701566652, 013177000, sec=4, nsec=217504000, pid=83802, rc=65280
+child finished: 7,	1701566652, 013209000, sec=4, nsec=216818000, pid=83808, rc=65280
+run 1 finished at:	1701566652, 013250000, Sat Dec  2 19:24:12 2023
+run 1 elapsed time:	         4, 217746000, 4.217746000
+runs finished at	1701566652, 013286000, Sat Dec  2 19:24:12 2023
+runs elapsed time:	         4, 217835000, 4.217835000
+error: a total of 12 children finished with errors
+specinvoke exit: rc=0
+
+****************************************
+Workload elapsed time (copy 10 workload 1) = 3.989008 seconds
+519.lbm_r: copy 3 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 3 workload 1) = 4.046 seconds
+519.lbm_r: copy 4 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 4 workload 1) = 4.138022 seconds
+519.lbm_r: copy 2 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 2 workload 1) = 4.194622 seconds
+519.lbm_r: copy 6 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 6 workload 1) = 4.198624 seconds
+519.lbm_r: copy 0 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 0 workload 1) = 4.200804 seconds
+519.lbm_r: copy 11 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 11 workload 1) = 4.203134 seconds
+519.lbm_r: copy 9 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 9 workload 1) = 4.213455 seconds
+519.lbm_r: copy 5 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 5 workload 1) = 4.214306 seconds
+519.lbm_r: copy 8 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 8 workload 1) = 4.215982 seconds
+519.lbm_r: copy 1 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 1 workload 1) = 4.217504 seconds
+519.lbm_r: copy 7 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 7 workload 1) = 4.216818 seconds
+Copy 0 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:11.  Total elapsed time: 4.200804
+Copy 1 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:12.  Total elapsed time: 4.217504
+Copy 2 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:11.  Total elapsed time: 4.194622
+Copy 3 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:11.  Total elapsed time: 4.046
+Copy 4 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:11.  Total elapsed time: 4.138022
+Copy 5 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:12.  Total elapsed time: 4.214306
+Copy 6 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:11.  Total elapsed time: 4.198624
+Copy 7 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:12.  Total elapsed time: 4.216818
+Copy 8 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:12.  Total elapsed time: 4.215982
+Copy 9 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:12.  Total elapsed time: 4.213455
+Copy 10 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:11.  Total elapsed time: 3.989008
+Copy 11 of 519.lbm_r (base refrate) run 1 finished at 2023-12-02 19:24:12.  Total elapsed time: 4.203134
+Benchmark Times:
+  Run Start:    2023-12-02 19:24:07 (1701566647)
+  Rate Start:   2023-12-02 19:24:07 (1701566647.79552)
+  Rate End:     2023-12-02 19:24:12 (1701566652.01321)
+  Run Stop:     2023-12-02 19:24:12 (1701566652)
+  Run Elapsed:  00:00:05 (5)
+  Run Reported: 00:00:04 (4 217685222 4.217685)
+ Error 519.lbm_r base refrate ratio=2998.80, runtime=4.217685, copies=12, threads=1, power=0.00W, temp=0.00 degC, humidity=0.00%, errorcode=RE
+-----------------------------------
+  Running (#2) 519.lbm_r refrate (ref) base llvm_unroll-m64 (12 copies) [2023-12-02 19:24:12]
+OpenMP environment variables removed: None
+OpenMP environment variables in effect:
+	OMP_NUM_THREADS	=> '1'
+	OMP_THREAD_LIMIT	=> '1'
+Pre-run environment changes:
+	'OMP_NUM_THREADS' added: (value now '1')
+	'OMP_THREAD_LIMIT' added: (value now '1')
+Commands to run (specinvoke command file):
+    -r
+    -N C
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0001
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0002
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0003
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0004
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0005
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0006
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0007
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0008
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0009
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0010
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0011
+    -o lbm.out -e lbm.err perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.$SPECCOPYNUM.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err (timed)
+Specinvoke: /usr/local/cpu2017/bin/specinvoke -d /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000 -f speccmds.cmd -q -e speccmds.err -o speccmds.stdout
+Issuing command '/usr/local/cpu2017/bin/specinvoke -d /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000 -f speccmds.cmd -q -e speccmds.err -o speccmds.stdout'
+Start command: 2023-12-02 19:24:12 (1701566652.444)
+Stop command: 2023-12-02 19:24:16 (1701566656.82836)
+Elapsed time for command: 00:00:04 (4.38436508178711)
+519.lbm_r: copy 6 non-zero return code (exit code=255, signal=0)
+
+****************************************
+Contents of lbm.err
+****************************************
+failed to create output file: Permission denied
+
+****************************************
+****************************************
+Contents of speccmds.out
+****************************************
+specinvoke r4356
+ Invoked as: /usr/local/cpu2017/bin/specinvoke -d /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000 -f speccmds.cmd -q -e speccmds.err -o speccmds.stdout
+timer ticks over every 1000 ns
+ Environment in effect for these runs:
+ # 1: HOME=/home/hgv16
+ # 2: _=/usr/local/cpu2017/bin/runcpu
+ # 3: MOTD_SHOWN=pam
+ # 4: USER=hgv16
+ # 5: SSH_CLIENT=147.26.231.153 47202 22
+ # 6: LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.
+webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+ # 7: XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
+ # 8: PWD=/usr/local/cpu2017
+ # 9: PATH=/usr/local/cuda-11.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/cpu2017/bin
+ #10: SSH_TTY=/dev/pts/1
+ #11: SSH_CONNECTION=147.26.231.153 47202 10.102.160.94 22
+ #12: XDG_SESSION_CLASS=user
+ #13: XDG_SESSION_ID=580
+ #14: XDG_SESSION_TYPE=tty
+ #15: SHLVL=1
+ #16: SPECDB_PWD=/usr/local/cpu2017
+ #17: XDG_RUNTIME_DIR=/run/user/760905436
+ #18: LANG=en_US.UTF-8
+ #19: LOGNAME=hgv16
+ #20: SPEC=/usr/local/cpu2017
+ #21: LESSCLOSE=/usr/bin/lesspipe %s %s
+ #22: LD_LIBRARY_PATH=/usr/lib/:/lib64
+ #23: LIBC_FATAL_STDERR_=1
+ #24: TERM=xterm-256color
+ #25: DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/760905436/bus
+ #26: LESSOPEN=| /usr/bin/lesspipe %s
+ #27: SHELL=/bin/bash
+ #28: OLDPWD=/home/hgv16
+ #29: OMP_NUM_THREADS=1
+ #30: OMP_THREAD_LIMIT=1
+running commands in speccmds.cmd 1 times
+runs started at		1701566652, 449536000, Sat Dec  2 19:24:12 2023
+run 1 started at	1701566652, 449588000, Sat Dec  2 19:24:12 2023
+child started: 0,	1701566652, 449608000, pid=83858, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.0.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 1,	1701566652, 449757000, pid=83859, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.1.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 2,	1701566652, 449873000, pid=83860, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.2.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 3,	1701566652, 449999000, pid=83861, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.3.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 4,	1701566652, 450119000, pid=83862, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.4.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 5,	1701566652, 450233000, pid=83863, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.5.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 6,	1701566652, 450374000, pid=83864, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.6.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 7,	1701566652, 450502000, pid=83865, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.7.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 8,	1701566652, 450633000, pid=83866, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.8.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 9,	1701566652, 450751000, pid=83867, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.9.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 10,	1701566652, 450880000, pid=83869, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.10.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 11,	1701566652, 451014000, pid=83870, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.11.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child finished: 6,	1701566656, 472104000, sec=4, nsec=21730000, pid=83864, rc=65280
+child finished: 9,	1701566656, 537283000, sec=4, nsec=86532000, pid=83867, rc=65280
+child finished: 7,	1701566656, 590500000, sec=4, nsec=139998000, pid=83865, rc=65280
+child finished: 0,	1701566656, 626903000, sec=4, nsec=177295000, pid=83858, rc=65280
+child finished: 10,	1701566656, 646304000, sec=4, nsec=195424000, pid=83869, rc=65280
+child finished: 5,	1701566656, 654716000, sec=4, nsec=204483000, pid=83863, rc=65280
+child finished: 8,	1701566656, 664079000, sec=4, nsec=213446000, pid=83866, rc=65280
+child finished: 1,	1701566656, 666333000, sec=4, nsec=216576000, pid=83859, rc=65280
+child finished: 2,	1701566656, 671391000, sec=4, nsec=221518000, pid=83860, rc=65280
+child finished: 11,	1701566656, 674124000, sec=4, nsec=223110000, pid=83870, rc=65280
+child finished: 4,	1701566656, 674244000, sec=4, nsec=224125000, pid=83862, rc=65280
+child finished: 3,	1701566656, 674439000, sec=4, nsec=224440000, pid=83861, rc=65280
+run 1 finished at:	1701566656, 674481000, Sat Dec  2 19:24:16 2023
+run 1 elapsed time:	         4, 224893000, 4.224893000
+runs finished at	1701566656, 674520000, Sat Dec  2 19:24:16 2023
+runs elapsed time:	         4, 224984000, 4.224984000
+error: a total of 12 children finished with errors
+specinvoke exit: rc=0
+
+****************************************
+Workload elapsed time (copy 6 workload 1) = 4.02173 seconds
+519.lbm_r: copy 9 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 9 workload 1) = 4.086532 seconds
+519.lbm_r: copy 7 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 7 workload 1) = 4.139998 seconds
+519.lbm_r: copy 0 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 0 workload 1) = 4.177295 seconds
+519.lbm_r: copy 10 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 10 workload 1) = 4.195424 seconds
+519.lbm_r: copy 5 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 5 workload 1) = 4.204483 seconds
+519.lbm_r: copy 8 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 8 workload 1) = 4.213446 seconds
+519.lbm_r: copy 1 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 1 workload 1) = 4.216576 seconds
+519.lbm_r: copy 2 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 2 workload 1) = 4.221518 seconds
+519.lbm_r: copy 11 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 11 workload 1) = 4.22311 seconds
+519.lbm_r: copy 4 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 4 workload 1) = 4.224125 seconds
+519.lbm_r: copy 3 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 3 workload 1) = 4.22444 seconds
+Copy 0 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.177295
+Copy 1 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.216576
+Copy 2 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.221518
+Copy 3 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.22444
+Copy 4 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.224125
+Copy 5 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.204483
+Copy 6 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.02173
+Copy 7 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.139998
+Copy 8 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.213446
+Copy 9 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.086532
+Copy 10 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.195424
+Copy 11 of 519.lbm_r (base refrate) run 2 finished at 2023-12-02 19:24:16.  Total elapsed time: 4.22311
+Benchmark Times:
+  Run Start:    2023-12-02 19:24:12 (1701566652)
+  Rate Start:   2023-12-02 19:24:12 (1701566652.44961)
+  Rate End:     2023-12-02 19:24:16 (1701566656.67444)
+  Run Stop:     2023-12-02 19:24:16 (1701566656)
+  Run Elapsed:  00:00:04 (4)
+  Run Reported: 00:00:04 (4 224830865 4.224831)
+ Error 519.lbm_r base refrate ratio=2993.73, runtime=4.224831, copies=12, threads=1, power=0.00W, temp=0.00 degC, humidity=0.00%, errorcode=RE
+-----------------------------------
+  Running (#3) 519.lbm_r refrate (ref) base llvm_unroll-m64 (12 copies) [2023-12-02 19:24:16]
+OpenMP environment variables removed: None
+OpenMP environment variables in effect:
+	OMP_NUM_THREADS	=> '1'
+	OMP_THREAD_LIMIT	=> '1'
+Pre-run environment changes:
+	'OMP_NUM_THREADS' added: (value now '1')
+	'OMP_THREAD_LIMIT' added: (value now '1')
+Commands to run (specinvoke command file):
+    -r
+    -N C
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0001
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0002
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0003
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0004
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0005
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0006
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0007
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0008
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0009
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0010
+    -C /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0011
+    -o lbm.out -e lbm.err perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.$SPECCOPYNUM.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err (timed)
+Specinvoke: /usr/local/cpu2017/bin/specinvoke -d /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000 -f speccmds.cmd -q -e speccmds.err -o speccmds.stdout
+Issuing command '/usr/local/cpu2017/bin/specinvoke -d /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000 -f speccmds.cmd -q -e speccmds.err -o speccmds.stdout'
+Start command: 2023-12-02 19:24:17 (1701566657.1317)
+Stop command: 2023-12-02 19:24:21 (1701566661.50768)
+Elapsed time for command: 00:00:04 (4.37597799301147)
+519.lbm_r: copy 1 non-zero return code (exit code=255, signal=0)
+
+****************************************
+Contents of lbm.err
+****************************************
+failed to create output file: Permission denied
+
+****************************************
+****************************************
+Contents of speccmds.out
+****************************************
+specinvoke r4356
+ Invoked as: /usr/local/cpu2017/bin/specinvoke -d /home/hgv16/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_llvm_unroll-m64.0000 -f speccmds.cmd -q -e speccmds.err -o speccmds.stdout
+timer ticks over every 1000 ns
+ Environment in effect for these runs:
+ # 1: XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
+ # 2: LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.
+webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+ # 3: USER=hgv16
+ # 4: _=/usr/local/cpu2017/bin/runcpu
+ # 5: MOTD_SHOWN=pam
+ # 6: SSH_CLIENT=147.26.231.153 47202 22
+ # 7: HOME=/home/hgv16
+ # 8: SHLVL=1
+ # 9: XDG_SESSION_TYPE=tty
+ #10: XDG_SESSION_ID=580
+ #11: XDG_SESSION_CLASS=user
+ #12: SSH_CONNECTION=147.26.231.153 47202 10.102.160.94 22
+ #13: SSH_TTY=/dev/pts/1
+ #14: PWD=/usr/local/cpu2017
+ #15: PATH=/usr/local/cuda-11.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/cpu2017/bin
+ #16: LD_LIBRARY_PATH=/usr/lib/:/lib64
+ #17: SPEC=/usr/local/cpu2017
+ #18: LESSCLOSE=/usr/bin/lesspipe %s %s
+ #19: LOGNAME=hgv16
+ #20: XDG_RUNTIME_DIR=/run/user/760905436
+ #21: SPECDB_PWD=/usr/local/cpu2017
+ #22: LANG=en_US.UTF-8
+ #23: OLDPWD=/home/hgv16
+ #24: SHELL=/bin/bash
+ #25: DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/760905436/bus
+ #26: LESSOPEN=| /usr/bin/lesspipe %s
+ #27: TERM=xterm-256color
+ #28: LIBC_FATAL_STDERR_=1
+ #29: OMP_NUM_THREADS=1
+ #30: OMP_THREAD_LIMIT=1
+running commands in speccmds.cmd 1 times
+runs started at		1701566657, 137253000, Sat Dec  2 19:24:17 2023
+run 1 started at	1701566657, 137307000, Sat Dec  2 19:24:17 2023
+child started: 0,	1701566657, 137327000, pid=83914, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.0.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 1,	1701566657, 137479000, pid=83915, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.1.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 2,	1701566657, 137597000, pid=83916, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.2.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 3,	1701566657, 137724000, pid=83917, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.3.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 4,	1701566657, 137844000, pid=83918, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.4.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 5,	1701566657, 137962000, pid=83919, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.5.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 6,	1701566657, 138091000, pid=83920, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.6.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 7,	1701566657, 138225000, pid=83921, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.7.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 8,	1701566657, 138359000, pid=83922, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.8.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 9,	1701566657, 138495000, pid=83923, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.9.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 10,	1701566657, 138622000, pid=83925, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.10.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child started: 11,	1701566657, 138758000, pid=83927, 'perf stat -e cache-misses,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,mem-loads,mem-stores,l1d.replacement,icache.hit,icache.ifdata_stall,icache.ifetch_stall,icache.misses -o /home/ajs329/perf/519.lbm_r.refrate.010.0.11.basic.stat ../run_base_refrate_llvm_unroll-m64.0000/lbm_r_base.llvm_unroll-m64 3000 reference.dat 0 0 100_100_130_ldc.of > lbm.out 2>> lbm.err'
+child finished: 1,	1701566661, 157512000, sec=4, nsec=20033000, pid=83915, rc=65280
+child finished: 6,	1701566661, 186684000, sec=4, nsec=48593000, pid=83920, rc=65280
+child finished: 11,	1701566661, 248768000, sec=4, nsec=110010000, pid=83927, rc=65280
+child finished: 3,	1701566661, 328495000, sec=4, nsec=190771000, pid=83917, rc=65280
+child finished: 9,	1701566661, 334262000, sec=4, nsec=195767000, pid=83923, rc=65280
+child finished: 10,	1701566661, 340701000, sec=4, nsec=202079000, pid=83925, rc=65280
+child finished: 0,	1701566661, 345850000, sec=4, nsec=208523000, pid=83914, rc=65280
+child finished: 5,	1701566661, 348140000, sec=4, nsec=210178000, pid=83919, rc=65280
+child finished: 7,	1701566661, 349688000, sec=4, nsec=211463000, pid=83921, rc=65280
+child finished: 8,	1701566661, 353565000, sec=4, nsec=215206000, pid=83922, rc=65280
+child finished: 4,	1701566661, 353688000, sec=4, nsec=215844000, pid=83918, rc=65280
+child finished: 2,	1701566661, 353747000, sec=4, nsec=216150000, pid=83916, rc=65280
+run 1 finished at:	1701566661, 353789000, Sat Dec  2 19:24:21 2023
+run 1 elapsed time:	         4, 216482000, 4.216482000
+runs finished at	1701566661, 353827000, Sat Dec  2 19:24:21 2023
+runs elapsed time:	         4, 216574000, 4.216574000
+error: a total of 12 children finished with errors
+specinvoke exit: rc=0
+
+****************************************
+Workload elapsed time (copy 1 workload 1) = 4.020033 seconds
+519.lbm_r: copy 6 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 6 workload 1) = 4.048593 seconds
+519.lbm_r: copy 11 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 11 workload 1) = 4.11001 seconds
+519.lbm_r: copy 3 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 3 workload 1) = 4.190771 seconds
+519.lbm_r: copy 9 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 9 workload 1) = 4.195767 seconds
+519.lbm_r: copy 10 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 10 workload 1) = 4.202079 seconds
+519.lbm_r: copy 0 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 0 workload 1) = 4.208523 seconds
+519.lbm_r: copy 5 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 5 workload 1) = 4.210178 seconds
+519.lbm_r: copy 7 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 7 workload 1) = 4.211463 seconds
+519.lbm_r: copy 8 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 8 workload 1) = 4.215206 seconds
+519.lbm_r: copy 4 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 4 workload 1) = 4.215844 seconds
+519.lbm_r: copy 2 non-zero return code (exit code=255, signal=0)
+
+Workload elapsed time (copy 2 workload 1) = 4.21615 seconds
+Copy 0 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.208523
+Copy 1 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.020033
+Copy 2 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.21615
+Copy 3 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.190771
+Copy 4 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.215844
+Copy 5 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.210178
+Copy 6 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.048593
+Copy 7 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.211463
+Copy 8 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.215206
+Copy 9 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.195767
+Copy 10 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.202079
+Copy 11 of 519.lbm_r (base refrate) run 3 finished at 2023-12-02 19:24:21.  Total elapsed time: 4.11001
+Benchmark Times:
+  Run Start:    2023-12-02 19:24:17 (1701566657)
+  Rate Start:   2023-12-02 19:24:17 (1701566657.13733)
+  Rate End:     2023-12-02 19:24:21 (1701566661.35375)
+  Run Stop:     2023-12-02 19:24:21 (1701566661)
+  Run Elapsed:  00:00:04 (4)
+  Run Reported: 00:00:04 (4 216419935 4.21642)
+ Error 519.lbm_r base refrate ratio=2999.70, runtime=4.216420, copies=12, threads=1, power=0.00W, temp=0.00 degC, humidity=0.00%, errorcode=RE
+Error: 3x519.lbm_r
+Producing Raw Reports
+ label: llvm_unroll-m64
+  workload: refrate (ref)
+   benchset: intspeed
+   benchset: intrate
+   benchset: fpspeed
+   benchset: fprate
+   metric: SPECrate2017_fp_base
+    format: raw -> /home/hgv16/cpu2017/result/CPU2017.010.fprate.refrate.rsf
+Parsing flags for 519.lbm_r base: done
+Doing flag reduction: done
+    format: flags -> /home/hgv16/cpu2017/result/CPU2017.010.fprate.refrate.flags.html
+    format: PDF -> /home/hgv16/cpu2017/result/CPU2017.010.fprate.refrate.pdf
+runcpu finished at 2023-12-02 19:24:27; 24 total seconds elapsed
+The log for this run is in /home/hgv16/cpu2017/result/CPU2017.010.log
+
+runcpu finished at 2023-12-02 19:24:27; 25 total seconds elapsed
